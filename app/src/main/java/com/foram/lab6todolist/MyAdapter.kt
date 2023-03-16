@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.CheckedTextView
 import android.widget.ListView
-import com.foram.lab6todolist.databinding.ActivityMainBinding
 import com.foram.lab6todolist.databinding.LayoutListItemBinding
 
 class MyAdapter(
@@ -32,6 +30,16 @@ class MyAdapter(
         val binding =
             LayoutListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         binding.ctvItem.text = arrToDo[position]
+
+        binding.ctvItem.setOnClickListener {
+            if (binding.ctvItem.isChecked) {
+                binding.ctvItem.setCheckMarkDrawable(R.drawable.ic_uncheck_mark)
+                binding.ctvItem.isChecked = false
+            } else {
+                binding.ctvItem.setCheckMarkDrawable(R.drawable.ic_check_mark)
+                binding.ctvItem.isChecked = true
+            }
+        }
         return binding.root
     }
 

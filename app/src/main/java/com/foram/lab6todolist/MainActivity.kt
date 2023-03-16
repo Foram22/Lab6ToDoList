@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 arrToDo.add(binding.etAddItem.text.toString())
                 binding.etAddItem.text.clear()
                 listAdapter.notifyDataSetChanged()
-                setVisibility()
+                binding.tvEmptyListText.visibility = View.GONE
             }
         }
 
