@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val listAdapter = MyAdapter(this, arrToDo, binding.lvItems)
+        val listAdapter = MyAdapter(this, arrToDo)
         binding.lvItems.adapter = listAdapter
 
         binding.btnAdd.setOnClickListener {
@@ -42,5 +42,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.tvEmptyListText.visibility = View.VISIBLE
         }
+    }
+
+    fun showTextMessage() {
+        binding.tvEmptyListText.visibility = View.VISIBLE
     }
 }

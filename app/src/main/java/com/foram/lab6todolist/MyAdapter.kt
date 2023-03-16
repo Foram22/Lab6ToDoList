@@ -4,13 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ListView
 import com.foram.lab6todolist.databinding.LayoutListItemBinding
 
 class MyAdapter(
     private val mainActivity: MainActivity,
     private val arrToDo: MutableList<String>,
-    private val lvItems: ListView,
 ) :
     BaseAdapter() {
 
@@ -40,8 +38,15 @@ class MyAdapter(
                 binding.ctvItem.isChecked = true
             }
         }
+
+        binding.ibDelete.setOnClickListener {
+            arrToDo.removeAt(position)
+            notifyDataSetChanged()
+            if (arrToDo.size <= 0) {
+                mainActivity.showTextMessage()
+            }
+        }
         return binding.root
     }
-
 
 }
