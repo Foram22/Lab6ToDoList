@@ -27,7 +27,7 @@ class MyAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding =
             LayoutListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        binding.ctvItem.text = arrToDo[position]
+        binding.ctvItem.text = arrToDo[position]            // Setting text to listview's particular element at position
 
         binding.ctvItem.setOnClickListener {
             if (binding.ctvItem.isChecked) {
